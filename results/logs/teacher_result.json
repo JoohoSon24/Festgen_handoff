@@ -1,0 +1,71 @@
+{
+  "best": {
+    "id": "2_min_snr_gamma5_update10000",
+    "checkpoint": "/root/Diffusion 3/FID/teacher_improvement_20261019/2_min_snr_gamma5/update_010000_teacher.pt",
+    "metrics": {
+      "official_fid": 22.205938930281775,
+      "valid_fid": 42.06537458723437,
+      "precision_k3": 0.7526490066225165,
+      "recall_k3": 0.5632450331125828,
+      "cfg": 2.5,
+      "sampling_steps": 64,
+      "nfe": 128,
+      "weights": "ema",
+      "generated_count": 3020,
+      "official_reference_count": 3020,
+      "valid_reference_count": 755,
+      "seed_base": 42,
+      "batch_size": 16,
+      "precision": "bf16",
+      "parameters": 48883107,
+      "submission_eligible": false
+    },
+    "parent_k": 150,
+    "weights": "ema",
+    "cfg": 2.5,
+    "sampling_steps": 64,
+    "objective": "min_snr"
+  },
+  "evaluations": [
+    {
+      "update": 5000,
+      "official_fid": 22.67965393000253,
+      "valid_fid": 42.07256858501597,
+      "precision_k3": 0.7529801324503311,
+      "recall_k3": 0.5632450331125828,
+      "cfg": 2.5,
+      "sampling_steps": 64,
+      "nfe": 128,
+      "weights": "ema",
+      "generated_count": 3020,
+      "official_reference_count": 3020,
+      "valid_reference_count": 755,
+      "seed_base": 42,
+      "batch_size": 16,
+      "precision": "bf16",
+      "parameters": 48883107,
+      "submission_eligible": false
+    },
+    {
+      "update": 10000,
+      "official_fid": 22.205938930281775,
+      "valid_fid": 42.06537458723437,
+      "precision_k3": 0.7526490066225165,
+      "recall_k3": 0.5632450331125828,
+      "cfg": 2.5,
+      "sampling_steps": 64,
+      "nfe": 128,
+      "weights": "ema",
+      "generated_count": 3020,
+      "official_reference_count": 3020,
+      "valid_reference_count": 755,
+      "seed_base": 42,
+      "batch_size": 16,
+      "precision": "bf16",
+      "parameters": 48883107,
+      "submission_eligible": false
+    }
+  ],
+  "changed_factor": "timestep loss weighting only",
+  "checkpoint_raw_resume_parent": "/root/Diffusion/code/workspace_distillation/experiments/teacher_budget_noaug_fresh_200k/teacher_b64_noaug_fresh_150k/final.pt"
+}

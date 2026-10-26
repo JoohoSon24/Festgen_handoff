@@ -1,0 +1,134 @@
+{
+  "created_utc": "2026-10-26 08:11:19 UTC",
+  "checkpoint_files": [
+    {
+      "handoff_path": "checkpoints/teacher/min_snr_best.pt",
+      "source": "/root/Diffusion 3/FID/teacher_improvement_20261019/2_min_snr_gamma5/update_010000_teacher.pt",
+      "bytes": 195646929,
+      "sha256": "df0c72846c548da86466b089eacdc3ef0cf7409cbb6417aab77e5680dfb89da7",
+      "hardlink_same_inode": true
+    },
+    {
+      "handoff_path": "checkpoints/teacher/full_training_resume.pt",
+      "source": "/root/Diffusion 3/FID/teacher_improvement_20261019/2_min_snr_gamma5/latest_training.pt",
+      "bytes": 978278710,
+      "sha256": "f1d0fc07234ecf0b11b14923c8551d293fc66b88547d5e56752ae1d8a2e10dbe",
+      "hardlink_same_inode": true
+    },
+    {
+      "handoff_path": "checkpoints/distillation/guidance32_best.pt",
+      "source": "/root/Diffusion 3/FID/student90_guidance32_extension_20261022/guidance32/selected.pt",
+      "bytes": 358415790,
+      "sha256": "15df3dbc9c91bb0777c1a806c9de75f765bd16516319e3b650d3cbb8d7b4493c",
+      "hardlink_same_inode": true
+    },
+    {
+      "handoff_path": "checkpoints/distillation/n16_best.pt",
+      "source": "/root/Diffusion 3/FID/student90_cfg25_restart17/n16/selected.pt",
+      "bytes": 358415662,
+      "sha256": "0b6be52f0918687807295ebd5db52f464a8db0cb6ab9e4ed21f4d440966dbba7",
+      "hardlink_same_inode": true
+    },
+    {
+      "handoff_path": "checkpoints/distillation/n8_best.pt",
+      "source": "/root/Diffusion 3/FID/student90_n8_n4_n2_budget_extension_20261023/n8/selected.pt",
+      "bytes": 358415598,
+      "sha256": "b04ae1b9d22e6e9c8c329bd80041d215bd4827676a3216edb129a7c3ac23d185",
+      "hardlink_same_inode": true
+    },
+    {
+      "handoff_path": "checkpoints/distillation/n4_best.pt",
+      "source": "/root/Diffusion 3/FID/student90_n8_n4_n2_budget_extension_20261023/n4/selected.pt",
+      "bytes": 358415534,
+      "sha256": "308c521caa80b1af8902a88183be8d48c04e6f083cc9d6a557a454398a271dd6",
+      "hardlink_same_inode": true
+    },
+    {
+      "handoff_path": "checkpoints/distillation/n2_best.pt",
+      "source": "/root/Diffusion 3/FID/student90_n8_n4_n2_budget_extension_20261023/n2/selected.pt",
+      "bytes": 358415534,
+      "sha256": "0a7468773b36bac46d11c4482f22b851e887092d4f03db37005ff62b91261242",
+      "hardlink_same_inode": true
+    },
+    {
+      "handoff_path": "checkpoints/distillation/n1_best.pt",
+      "source": "/root/Diffusion 3/FID/student90_n1_budget_extension_20261025/n1/selected.pt",
+      "bytes": 358415534,
+      "sha256": "74905d01c2d23b424d085bcb73a0d0919357a7aeceb130d27cf20f0f27f35860",
+      "hardlink_same_inode": true
+    },
+    {
+      "handoff_path": "checkpoints/student/n4_gtgan_1k_best.ckpt",
+      "source": "/root/Diffusion 3/FID/student90_n1_budget_extension_20261025/gan_n4/selected.ckpt",
+      "bytes": 358421742,
+      "sha256": "3a7c3122db88898379f60705ed61e32dcd46393490ef56bea4d36cf3e35477c8",
+      "hardlink_same_inode": true
+    },
+    {
+      "handoff_path": "checkpoints/student/n4_gtgan_extension_best.ckpt",
+      "source": "/root/Diffusion 3/FID/student90_n1_budget_extension_20261025/gan_n4_extension/selected.ckpt",
+      "bytes": 358421742,
+      "sha256": "a82c86315364d1565b1bc5ea6d647e0743861d293c7a4cf91c30870bfb163935",
+      "hardlink_same_inode": true
+    },
+    {
+      "handoff_path": "resume/n4_gtgan_extension_latest.pt",
+      "source": "/root/Diffusion 3/FID/student90_n1_budget_extension_20261025/gan_n4_extension/latest.pt",
+      "bytes": 1454755033,
+      "sha256": "5f3892a2c756e7ac0eedb819a82aca5b9f05977a725a67f1faf2e9a4ea147756",
+      "hardlink_same_inode": true
+    },
+    {
+      "handoff_path": "resume/n4_gtgan_extension_best_optimizer.pt",
+      "source": "/root/Diffusion 3/FID/student90_n1_budget_extension_20261025/gan_n4_extension/best_resume.pt",
+      "bytes": 1454763792,
+      "sha256": "0e320bfe7115763904339cee1257146bcccfbf1d9f893f19d7823ea1376302a5",
+      "hardlink_same_inode": true
+    }
+  ],
+  "code_files": [
+    "code/Experiment/activate_adaptive_student90.py",
+    "code/Experiment/adaptive_budget_policy.py",
+    "code/Experiment/adaptive_reproducibility.py",
+    "code/Experiment/apply_checkpoint_cleanup.py",
+    "code/Experiment/apply_live_budget20.py",
+    "code/Experiment/augmentation_stage.py",
+    "code/Experiment/build_adaptive_student90.py",
+    "code/Experiment/build_reproduction_manifest.py",
+    "code/Experiment/check_adaptive_policy.py",
+    "code/Experiment/cleanup_augmented_copies.py",
+    "code/Experiment/continue_guidance32_internalization.py",
+    "code/Experiment/continue_n4_gtgan_then_dmd.py",
+    "code/Experiment/extend_distillation_budget.py",
+    "code/Experiment/mirror_live_student90_progress.py",
+    "code/Experiment/optimize_student90_throughput.py",
+    "code/Experiment/plan_checkpoint_cleanup.py",
+    "code/Experiment/prepare_data.py",
+    "code/Experiment/queue_n1_dmd_after_n4.py",
+    "code/Experiment/reproduce_nfe4_fid32.py",
+    "code/Experiment/run_cfg.py",
+    "code/Experiment/run_guidance_extension_sequence.py",
+    "code/Experiment/run_n1_dmd_after_n4.py",
+    "code/Experiment/run_n4_gtgan_after_n1.py",
+    "code/Experiment/run_student90_n1_from_best_n2.py",
+    "code/Experiment/run_student90_n8_n4_n2_budget_extension.py",
+    "code/Experiment/seeded_metrics.py",
+    "code/Experiment/storage_inventory.py",
+    "code/Experiment/student90_adaptive.py",
+    "code/Experiment/student90_model.py",
+    "code/Experiment/student90_pipeline.py",
+    "code/Experiment/student90_restart17.py",
+    "code/Experiment/teacher_core.py",
+    "code/Experiment/teacher_seed_cfg.py",
+    "code/Experiment/train_augmented.py",
+    "code/Experiment/train_gt_gan.py",
+    "code/Experiment/verify_cfg_seeds.py",
+    "code/docs/Exp.md",
+    "code/docs/N1_DMD_AFTER_N4.md",
+    "code/docs/STUDENT90_BUDGET_EXTENSION.md",
+    "code/docs/STUDENT90_PROGRESS.md",
+    "code/docs/TEACHER_SEED_CFG_PROGRESS.md",
+    "code/docs/exp-20261021-student90-adaptive.json"
+  ],
+  "dataset_note": "Training images and canonical manifests remain at /root/Diffusion/code/workspace_distillation; see README. Checkpoint artifacts are same-filesystem hardlinks to avoid duplicate disk use."
+}

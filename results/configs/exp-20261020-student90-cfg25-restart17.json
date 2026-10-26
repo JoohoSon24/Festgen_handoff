@@ -1,0 +1,268 @@
+{
+  "experiment_id": "exp-20261020-student90-cfg25-restart17",
+  "status": "approved_clean_restart",
+  "parent_id": "teacher_min_snr_gamma5_update10000",
+  "hypothesis": "larger student with longer late progressive stages preserves the improved no-augmentation teacher under NFE4/1",
+  "workspace": "/root/Diffusion 3",
+  "teacher": {
+    "checkpoint": "/root/Diffusion 3/FID/teacher_improvement_20261019/2_min_snr_gamma5/update_010000_teacher.pt",
+    "sha256": "df0c72846c548da86466b089eacdc3ef0cf7409cbb6417aab77e5680dfb89da7",
+    "parameters": 48883107,
+    "weights": "ema",
+    "prediction_type": "epsilon",
+    "guidance_scale": 2.5,
+    "frozen": true,
+    "conditioning_calls_per_prediction": 2,
+    "must_evaluate_ddim32_anchor": true
+  },
+  "student": {
+    "parameters": 89577673,
+    "model_channels": 130,
+    "channel_mult": [
+      1,
+      2,
+      3,
+      4
+    ],
+    "num_res_blocks": 2,
+    "attention_resolutions": [
+      16
+    ],
+    "num_classes": 151,
+    "image_size": 64,
+    "in_channels": 3,
+    "dropout": 0.0,
+    "prediction_type": "v",
+    "initialization": "new random backbone and zero v output head, seed42; no Student checkpoint reused",
+    "normalization": "existing GroupNorm gcd(channels,32), width130 differs from width96",
+    "inference_cfg": "embedded; no extra unconditional forward"
+  },
+  "training": {
+    "method": "fixed_cfg_then_progressive",
+    "objective": "existing truncated-SNR weighted v MSE; max(alpha^2,sigma^2)*MSE(v)",
+    "learning_rate": 0.0002,
+    "learning_rate_schedule": "constant",
+    "warmup_steps": 0,
+    "weight_decay": 0.0,
+    "ema_decay": 0.999,
+    "grad_clip": 1.0,
+    "effective_batch": 64,
+    "microbatch": 64,
+    "gradient_accumulation": 1,
+    "amp_dtype": "bf16",
+    "activation_checkpointing": false,
+    "seed": 42,
+    "class_dropout": 0.0,
+    "data_augmentation": "none",
+    "train_manifest": "/root/Diffusion/code/workspace_distillation/data/development/seed42_holdout5/train.txt",
+    "train_manifest_sha256": "b4020d6dc65948c7cd2a0de048382284d0fc7a1dd19237583e4f67cc2d353f51",
+    "train_count": 16324,
+    "top_node_input": "pure noise as existing trainer",
+    "merged_target_clip": false,
+    "student_rollout_clipping": "preserve existing stage-specific behavior; final export parity required"
+  },
+  "stages": [
+    {
+      "name": "guidance32",
+      "updates": 153000,
+      "evaluation_interval": 10000,
+      "also_evaluate_final": true,
+      "sampling_steps": 32
+    },
+    {
+      "name": "n16",
+      "updates": 61200,
+      "evaluation_interval": 5000,
+      "sampling_steps": 16
+    },
+    {
+      "name": "n8",
+      "updates": 61200,
+      "evaluation_interval": 5000,
+      "sampling_steps": 8
+    },
+    {
+      "name": "n4",
+      "updates": 81600,
+      "evaluation_interval": 5000,
+      "sampling_steps": 4
+    },
+    {
+      "name": "n2",
+      "updates": 102000,
+      "evaluation_interval": 5000,
+      "sampling_steps": 2
+    },
+    {
+      "name": "n1",
+      "updates": 153000,
+      "evaluation_interval": 5000,
+      "sampling_steps": 1
+    }
+  ],
+  "total_distillation_updates": 612000,
+  "nested_sampling_grids": {
+    "32": [
+      999,
+      967,
+      935,
+      902,
+      870,
+      838,
+      806,
+      773,
+      741,
+      709,
+      677,
+      645,
+      612,
+      580,
+      548,
+      516,
+      483,
+      451,
+      419,
+      387,
+      354,
+      322,
+      290,
+      258,
+      226,
+      193,
+      161,
+      129,
+      97,
+      64,
+      32,
+      0
+    ],
+    "16": [
+      999,
+      935,
+      870,
+      806,
+      741,
+      677,
+      612,
+      548,
+      483,
+      419,
+      354,
+      290,
+      226,
+      161,
+      97,
+      32
+    ],
+    "8": [
+      999,
+      870,
+      741,
+      612,
+      483,
+      354,
+      226,
+      97
+    ],
+    "4": [
+      999,
+      741,
+      483,
+      226
+    ],
+    "2": [
+      999,
+      483
+    ],
+    "1": [
+      999
+    ]
+  },
+  "stage_parent": "prior progressive stage selected EMA; NFE4 saved before subsequent distillation; GAN weights never used as progressive targets",
+  "fine_tuning": {
+    "order": [
+      "n1",
+      "n4"
+    ],
+    "method": "previous train-GT conditional projection SN discriminator + frozen original-student anchor; no fake-score DMD",
+    "updates_per_model": 1000,
+    "evaluate_updates": [
+      0,
+      250,
+      500,
+      1000
+    ],
+    "effective_batch": 32,
+    "microbatch": 4,
+    "gradient_accumulation": 8,
+    "g_lr": 1e-06,
+    "d_lr": 0.0001,
+    "gan_weight": 0.1,
+    "gan_ramp_updates": 100,
+    "d_warmup_updates": 100,
+    "lowpass_anchor_mse_weight": 1.0,
+    "full_image_anchor_l1_weight": 0.1,
+    "ema_decay": 0.999,
+    "r1_gamma": 1.0,
+    "r1_interval": 16,
+    "translation_pixels": 2,
+    "real_data": "original no-augmentation development train, class-uniform",
+    "joint_trainable_parameters": 91324298,
+    "discriminator_parameters": 1746625,
+    "frozen_anchor_parameters": 89577673,
+    "selection": "include unchanged step0; retain best Official FID, do not replace with worse GAN output"
+  },
+  "evaluation": {
+    "official_reference_count": 3020,
+    "valid_reference_count": 755,
+    "generated_count": 3020,
+    "images_per_class": 20,
+    "batch": 16,
+    "precision": "bf16",
+    "seed_base": 42,
+    "metrics": [
+      "official_fid",
+      "valid_fid",
+      "precision_k3",
+      "recall_k3"
+    ],
+    "feature": "clean-fid clean Inception2048",
+    "official_selection_is_independent_test": false,
+    "actual_nfe_hook_required": true,
+    "parameter_limit": 100000000,
+    "peak_allocated_vram_limit_bytes": 20000000000
+  },
+  "preflight_before_full_training": [
+    "validate adapted checkpoint adapter strict load and train-manifest provenance",
+    "GPU full-step smoke with accumulation; finite/nonzero gradients, frozen teacher no gradients",
+    "peak allocated VRAM<20GB with optimizer states and active evaluation",
+    "epsilon-to-v target numeric check and exact nested merged DDIM endpoint check",
+    "EMA export architecture/config parity and actual NFE1/NFE4 forward count",
+    "teacher DDIM32 anchor and guidance32 quality gate"
+  ],
+  "launch_authorized": true,
+  "quality_gates": {
+    "guidance32_max_fid_increase_over_teacher32": 15.0,
+    "policy": "preserve existing recipe tolerance; stop pipeline if exceeded; do not run progressive blindly",
+    "stage_selection": "lowest Official FID among evaluated EMA checkpoints including final; report Valid separately"
+  },
+  "storage": {
+    "observed_free_gib_approx": 12,
+    "keep_all_existing_results": true,
+    "retain_each_stage": "selected EMA + config + metrics + RNG provenance",
+    "retain_full_optimizer_state": "active stage latest only; replace old newly-generated active-stage resume after next stage durable checkpoint",
+    "evaluation_images": "retain selected NFE1/NFE4 and teacher anchor; nonselected new intermediate evaluations retain metrics/features/preview only",
+    "minimum_free_gib_before_write": 3,
+    "on_insufficient_space": "stop safely preserving current checkpoint; never delete earlier experiment files"
+  },
+  "authorization": "2026-10-20 user requested delete current Student run, restart from scratch, each distillation budget1.7x initial plan",
+  "budget_revision": {
+    "factor_over_previous": 1.2,
+    "previous_total": 510000,
+    "new_total": 612000,
+    "factor_over_initial300k": 2.04,
+    "authorized_by": "2026-10-21 user: 현재 예산에서20% 추가. Continue from current state; no reset.",
+    "gan_budget_unchanged": true
+  },
+  "restart_of": "exp-20261020-student90-cfg25-review"
+}

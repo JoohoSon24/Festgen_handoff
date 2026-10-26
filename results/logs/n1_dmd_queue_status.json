@@ -1,0 +1,6 @@
+{
+  "status": "queued",
+  "waits_for": "/root/Diffusion 3/FID/student90_n1_budget_extension_20261025/n4_extension_completed.json",
+  "next": "N1 DMD-inspired fine-tune after N4 extra 1,000 updates",
+  "updated_utc": "2026-10-26 08:11:14 UTC"
+}

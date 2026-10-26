@@ -1,0 +1,14 @@
+{
+  "best_resume": {
+    "role": "best_resume",
+    "update": 1250,
+    "path": "/root/Diffusion 3/FID/student90_n1_budget_extension_20261025/gan_n4_extension/best_resume.pt",
+    "sha256": "0e320bfe7115763904339cee1257146bcccfbf1d9f893f19d7823ea1376302a5",
+    "bytes": 1454763792,
+    "parent": "/root/Diffusion 3/FID/student90_n1_budget_extension_20261025/n4/n4_distilled.ckpt",
+    "config_sha256": "9afa8928de9ac8b9534f85fc737326a45a676e3dc1e834e539708f76acb61913",
+    "policy_sha256": "1673d43aab28688981675824460be7ab252d9be554ef99f3bfb0e7c586c55672",
+    "source_revision": "960777868b422cd16652d180b2665af964d689738fbe98902a2bcc1e3a72926b",
+    "created_utc": "2026-10-26 07:17:17 UTC"
+  }
+}

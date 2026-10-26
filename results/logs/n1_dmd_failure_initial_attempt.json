@@ -1,0 +1,5 @@
+{
+  "status": "failed",
+  "traceback": "Traceback (most recent call last):\n  File \"/root/Diffusion 3/Experiment/run_n1_dmd_after_n4.py\", line 386, in <module>\n    main()\n  File \"/root/Diffusion 3/Experiment/run_n1_dmd_after_n4.py\", line 139, in main\n    real, real_config, _ = load_score_model(teacher_path)\n  File \"/root/Diffusion 3/Experiment/run_n1_dmd_after_n4.py\", line 90, in load_score_model\n    model.load_state_dict(state['ema'], strict=True)\nKeyError: 'ema'\n",
+  "updated_utc": "2026-10-26 06:03:26 UTC"
+}
